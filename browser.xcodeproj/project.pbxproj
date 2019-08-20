@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		291F03D4230BEE7C007DB611 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 291F03D3230BEE7B007DB611 /* README.md */; };
 		29C17E20230BC83E009211C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C17E1F230BC83E009211C7 /* AppDelegate.swift */; };
 		29C17E22230BC83E009211C7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C17E21230BC83E009211C7 /* ViewController.swift */; };
 		29C17E25230BC83E009211C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 29C17E23230BC83E009211C7 /* Main.storyboard */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		291F03D3230BEE7B007DB611 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		29C17E1C230BC83E009211C7 /* browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29C17E1F230BC83E009211C7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		29C17E21230BC83E009211C7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 		29C17E13230BC83E009211C7 = {
 			isa = PBXGroup;
 			children = (
+				291F03D3230BEE7B007DB611 /* README.md */,
 				29C17E1E230BC83E009211C7 /* browser */,
 				29C17E33230BC83F009211C7 /* browserTests */,
 				29C17E3E230BC83F009211C7 /* browserUITests */,
@@ -255,6 +258,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				291F03D4230BEE7C007DB611 /* README.md in Resources */,
 				29C17E2A230BC83F009211C7 /* LaunchScreen.storyboard in Resources */,
 				29C17E56230BCBF3009211C7 /* Localizable.strings in Resources */,
 				29C17E27230BC83F009211C7 /* Assets.xcassets in Resources */,

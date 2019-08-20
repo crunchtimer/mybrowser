@@ -114,7 +114,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="vAj-px-Pgu">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="AFh-t9-bJN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="AFh-t9-bJN">
                             <connections>
                                 <action selector="done:" destination="MFS-OE-RGJ" id="eI7-Bf-mIx"/>
                             </connections>
