@@ -43,3 +43,63 @@
 - お気に入りリストを表示（複数）すること
 - リストがをタップすると画面を閉じ、選択したWebページが表示されること
 
+
+### ヒント
+
+#### WebViewの更新について
+
+WebViewはページの「戻る」「進む」「更新」機能を実装していますが、それぞれWKWebViewのメソッドを使っています。
+```
+戻る：goBack()
+進む：goForward()
+更新：reload()
+```
+
+また、Webページを表示した履歴（戻るページや進むページがあるか）も以下のWKWebViewのメソッドで知ることができます。
+```
+戻る：canGoBack（Bool型）
+進む：canGoForward（Bool型）
+```
+
+#### WebViewの更新タイミング
+WebViewの更新開始と完了のタイミングはデリゲートを使うことでわかります。
+
+```
+class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // デリゲートの設定
+        self.webView.uiDelegate = self
+        self.webView.navigationDelegate = self
+    }
+}
+```
+
+デリゲートを設定すると、それぞれWebViewの読み込み開始のタイミングと読み込み完了のタイミングで以下のメソッドが呼ばれます。
+
+```
+// Web読み込み開始
+func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+}
+// Web読み込み完了
+func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+}
+```
+
+#### お気に入り画面から選択したURLを渡すには？
+このサンプルではクロージャーを使っています。
+ViewController.swiftにある以下の処理を参考にしてください。
+
+```
+// 画面遷移前処理
+override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+    // クロージャ（お気に入り画面でタップされたら戻ってくる）
+    vc.closure = { (url: String) -> Void in
+        // 選択したお気に入りのURLをWebViewに設定し読み込み
+        let url = URL(string: url)
+        let request = URLRequest(url: url!)
+        self.webView.load(request)
+    }
+}
+```
