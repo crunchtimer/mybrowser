@@ -24,7 +24,7 @@ class BookmarkTableViewController: UITableViewController {
         "https://www.nintendo.co.jp"
     ]
     
-    // クロージャー
+    // クロージャー（String型の引数、返却値なし）
     var closure: ((String) -> Void)?
     
     override func viewDidLoad() {

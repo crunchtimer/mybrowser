@@ -11,11 +11,19 @@ import WebKit
 
 class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 
+    // WebView
     @IBOutlet weak var webView: WKWebView!
+    
+    // インジケーター
     @IBOutlet weak var indicator: UIActivityIndicatorView!
+    
+    // 戻るボタン
     @IBOutlet weak var backButton: UIBarButtonItem!
+    
+    // 次へボタン
     @IBOutlet weak var goButton: UIBarButtonItem!
     
+    // 画面表示時に1度必ず最初に処理されるメソッド
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +31,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         self.webView.uiDelegate = self
         self.webView.navigationDelegate = self
         
-        // 初期表示
+        // ブラウザ初期表示
         let url = URL(string: "https://www.google.com")
         let request = URLRequest(url: url!)
         self.webView.load(request)
@@ -75,6 +83,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     }
     
     // 画面遷移前処理
+    // ※ 次画面に遷移する直前に呼ばれるメソッド
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         // 画面インスタンスの取得
@@ -82,7 +91,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
         let navi = segue.destination as! UINavigationController
         let vc = navi.viewControllers[0] as! BookmarkTableViewController
         
-        // クロージャ（お気に入り画面でタップされたら戻ってくる）
+        // クロージャ（お気に入り画面でタップされたら処理が戻ってくる）
         vc.closure = { (url: String) -> Void in
             // 選択したお気に入りのURLをWebViewに設定し読み込み
             let url = URL(string: url)

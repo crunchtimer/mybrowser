@@ -46,6 +46,11 @@
 
 ### ヒント
 
+#### ブラウザの戻る・次へボタンについて
+
+BarButtonItemに戻る（左矢印）と次へ（右矢印）を実装するには画像が必要です。  
+このプロジェクトの画像（Assets.xcassets）からコピーしてください。
+
 #### WebViewの更新について
 
 WebViewはページの「戻る」「進む」「更新」機能を実装していますが、それぞれWKWebViewのメソッドを使っています。
@@ -64,6 +69,9 @@ WebViewはページの「戻る」「進む」「更新」機能を実装して�
 #### WebViewの更新タイミング
 WebViewの更新開始と完了のタイミングはデリゲートを使うことでわかります。
 
+- "WKUIDelegate" と "WKNavigationDelegate" を継承する  
+- "self.webView.uiDelegate" と "self.webView.navigationDelegate" に self を設定する
+
 ```
 class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     override func viewDidLoad() {
@@ -76,6 +84,7 @@ class ViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
 ```
 
 デリゲートを設定すると、それぞれWebViewの読み込み開始のタイミングと読み込み完了のタイミングで以下のメソッドが呼ばれます。
+printして動作を確認してみましょう。
 
 ```
 // Web読み込み開始
@@ -85,6 +94,10 @@ func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
 func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
 }
 ```
+
+- 継承についてはテキストのp184を参照
+- デリゲートについてはテキストのp296を参照
+
 
 #### お気に入り画面から選択したURLを渡すには？
 このサンプルではクロージャーを使っています。
@@ -103,3 +116,8 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     }
 }
 ```
+
+- クロージャーについてはテキストのp250を参照
+
+メソッドの返却値で「Void型」が出てきますが、これは"何も返却しない"ということを表しています。
+
